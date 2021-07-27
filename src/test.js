@@ -1,45 +1,69 @@
 import string from './css.js'
-let n=0
-let time=100
-const demo=document.querySelector('#demo')
-const dem2=document.querySelector('#dem2')
-demo.innerText=string.substring(0,n)
-demo2.innerHTML=string.substring(0,n)
+
+
 const player={
+    n:0,
+    time:100,
+    id:undefined,
+    ui:{
+        demo:document.querySelector('#demo'),
+        demo2:document.querySelector('#demo2')
+    },
+    init:()=>{
+        player.ui.demo.innerText=string.substring(0,player.n)
+        player.ui.demo2.innerHTML=string.substring(0,player.n)
+        player.play()
+        player.bindEvents()
+    },
+    events:{
+        '#buttonPause':'pause',
+        '#btnPlay':'play',
+        '#btnSlow':'Slow',
+        '#btnNormal':'Normal',
+        '#btnFast':'Fast'
+    },
+    bindEvents:()=>{
+        for(let key in player.events){ 
+            if(player.events.hasOwnProperty(key)){
+                const value=player.events[key]
+                document.querySelector(key).onclick=player[value]
+            }           
+        }
+    },
     run:()=>{
-        if(n>string.length){
-            window.clearInterval(id)
+        player.n+=1
+        if(player.n>string.length){
+            window.clearInterval(player.id)
             return
         }
-        n+=1
-        demo.innerText=string.substring(0,n)
-        demo2.innerHTML=string.substring(0,n)
-        demo.scrollTop=99999;
+        player.ui.demo.innerText=string.substr(0,player.n)
+        player.ui.demo2.innerHTML=string.substr(0,player.n)
+        player.ui.demo.scrollTop=99999;
     },
     play:()=>{
-        return id=setInterval(player.run,time)
+        player.id = setInterval(player.run,player.time)
     },
     pause:()=>{
-        window.clearInterval(id)
+        window.clearInterval(player.id)
     },
     Slow:()=>{
         player.pause()
-        time=300
+        player.time=300
         player.play()
     },
     Normal:()=>{
         player.pause()
-        time=50
+        player.time=50
         player.play()
     },
     Fast:()=>{
         player.pause()
-        time=0
+        player.time=0
         player.play()
     }
 
 }
-let id = player.play()
+
 // const run=()=>{
 //     if(n>string.length){
 //         window.clearInterval(id)
@@ -55,24 +79,11 @@ let id = player.play()
 //     return id=setInterval(run,time)
 // }
 
+player.init()
 
 
-document.querySelector('#buttonPause').onclick=()=>{player.pause()}
-document.querySelector('#btnPlay').onclick=()=>{
-    id=player.play()
-}
-document.querySelector('#btnSlow').onclick=()=>{
-    player.pause()
     
-}
-document.querySelector('#btnNormal').onclick=()=>{
-    player.pause()
-    
-}
-document.querySelector('#btnFast').onclick=()=>{
-    player.pause()
-    
-}
+
 // const pause=()=>{
 //     window.clearInterval(id)
 // }
