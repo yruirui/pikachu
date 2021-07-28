@@ -1,6 +1,6 @@
 import string from './css.js'
 
-
+<script type="module" src=".css.js"></script> 
 const player={
     n:0,
     time:100,
