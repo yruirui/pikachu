@@ -140,9 +140,9 @@
       this[globalName] = mainExports;
     }
   }
-})({"5KM7X":[function(require,module,exports) {
+})({"FuBp1":[function(require,module,exports) {
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = 52686;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d751713988987e9331980363e24189ce";
 module.bundle.HMR_BUNDLE_ID = "dda62e61c518901762dac47a15efcf68";
@@ -445,6 +445,7 @@ id) /*: string*/
 var _cssJs = require('./css.js');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _cssJsDefault = _parcelHelpers.interopDefault(_cssJs);
+let astring = _cssJsDefault.default;
 const player = {
   n: 0,
   time: 100,
@@ -454,8 +455,8 @@ const player = {
     demo2: document.querySelector('#demo2')
   },
   init: () => {
-    player.ui.demo.innerText = _cssJsDefault.default.substring(0, player.n);
-    player.ui.demo2.innerHTML = _cssJsDefault.default.substring(0, player.n);
+    player.ui.demo.innerText = astring.substring(0, player.n);
+    player.ui.demo2.innerHTML = astring.substring(0, player.n);
     player.play();
     player.bindEvents();
   },
@@ -723,6 +724,6 @@ exports.export = function (dest, destName, get) {
     get: get
   });
 };
-},{}]},["5KM7X","20YiG"], "20YiG", "parcelRequire427e")
+},{}]},["FuBp1","20YiG"], "20YiG", "parcelRequire427e")
 
 //# sourceMappingURL=test.15efcf68.js.map

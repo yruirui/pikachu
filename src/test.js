@@ -1,6 +1,6 @@
 import string from './css.js'
 
-<script type="module" src=".css.js"></script> 
+let astring=string
 const player={
     n:0,
     time:100,
@@ -10,8 +10,8 @@ const player={
         demo2:document.querySelector('#demo2')
     },
     init:()=>{
-        player.ui.demo.innerText=string.substring(0,player.n)
-        player.ui.demo2.innerHTML=string.substring(0,player.n)
+        player.ui.demo.innerText=astring.substring(0,player.n)
+        player.ui.demo2.innerHTML=astring.substring(0,player.n)
         player.play()
         player.bindEvents()
     },
